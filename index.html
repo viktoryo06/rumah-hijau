@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistem Pakar Rumah Hijau</title>
+</head>
+
+<body>
+
+<h2>Sistem Pakar Rumah Ramah Lingkungan</h2>
+
+<label>Lokasi:</label>
+<select id="lokasi">
+    <option value="panas">Panas</option>
+    <option value="dingin">Dingin</option>
+</select><br><br>
+
+<label>Hemat Energi:</label>
+<select id="energi">
+    <option value="ya">Ya</option>
+    <option value="tidak">Tidak</option>
+</select><br><br>
+
+<label>Hemat Air:</label>
+<select id="air">
+    <option value="ya">Ya</option>
+    <option value="tidak">Tidak</option>
+</select><br><br>
+
+<label>Material:</label>
+<select id="material">
+    <option value="ya">Ya</option>
+    <option value="tidak">Tidak</option>
+</select><br><br>
+
+<label>Ventilasi:</label>
+<select id="ventilasi">
+    <option value="ya">Ya</option>
+    <option value="tidak">Tidak</option>
+</select><br><br>
+
+<button onclick="proses()">Lihat Rekomendasi</button>
+
+<h3>Hasil:</h3>
+<div id="hasil"></div>
+
+<script>
+function proses() {
+
+    let lokasi = document.getElementById("lokasi").value;
+    let energi = document.getElementById("energi").value;
+    let air = document.getElementById("air").value;
+    let material = document.getElementById("material").value;
+    let ventilasi = document.getElementById("ventilasi").value;
+
+    let hasil = "";
+
+    if (lokasi === "panas") hasil += "☀️ Gunakan shading<br>";
+    if (lokasi === "dingin") hasil += "❄️ Gunakan insulasi<br>";
+    if (energi === "ya") hasil += "⚡ Gunakan panel surya<br>";
+    if (air === "ya") hasil += "💧 Gunakan penampungan air hujan<br>";
+    if (material === "ya") hasil += "🌿 Gunakan material ramah lingkungan<br>";
+    if (ventilasi === "ya") hasil += "🌬️ Gunakan cross ventilation<br>";
+
+    document.getElementById("hasil").innerHTML = hasil || "Tidak ada rekomendasi.";
+}
+</script>
+
+</body>
+</html>
